@@ -12,6 +12,7 @@ from pages.registration_page import RegistrationPage
 @allure.title("Отправка формы регистрации и проверка корректности отправленных значений")
 @allure.link("https://github.com", name="github")
 def test_practice_form(setup_browser):
+    browser = setup_browser
     registration = RegistrationPage()
 
     with allure.step('Открыть браузер и перейти на сайт'):
