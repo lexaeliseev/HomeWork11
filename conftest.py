@@ -14,13 +14,6 @@ def browser_settings():
     browser.config.window_height = 1080
 
 
-@pytest.fixture()
-def open_browser():
-    browser.config.base_url = "https://demoqa.com"
-    yield
-    browser.quit()
-
-
 @pytest.fixture(scope='function')
 def setup_browser(request):
     options = Options()
