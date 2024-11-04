@@ -12,14 +12,15 @@ def setup_browser():
         "browserName": "chrome",
         "browserVersion": "100.0",
         "selenoid:options": {
-            "enableVNC": True,
-            "enableVideo": True
+            "enableVideo": True,
+            "enableVNC": True
         }
     }
-    options.capabilities.update(selenoid_capabilities)
+
     driver = webdriver.Remote(
         command_executor="https://user1:1234@selenoid.autotests.cloud/wd/hub",
-        options=options)
+        desired_capabilities=selenoid_capabilities)
+
     browser.config.driver = driver
 
     browser.config.driver_name = "chrome"
