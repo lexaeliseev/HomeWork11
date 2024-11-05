@@ -15,7 +15,7 @@ def test_practice_form(setup_browser):
     registration = RegistrationPage()
 
     with allure.step('Открыть браузер и перейти на сайт'):
-        browser.open("https://demoqa.com/automation-practice-form")
+        registration.browser_open("https://demoqa.com/automation-practice-form")
 
     """ WHEN """
     with allure.step('Ввести значение в поле first_name'):
