@@ -14,50 +14,27 @@ from pages.registration_page import RegistrationPage
 def test_practice_form(setup_browser):
     registration = RegistrationPage()
 
-    with allure.step('Открыть браузер и перейти на сайт'):
-        registration.browser_open("/automation-practice-form")
+    registration.browser_open("/automation-practice-form")
 
     """ WHEN """
-    with allure.step('Ввести значение в поле first_name'):
-        registration.fill_first_name("Алексей")
+    registration.fill_first_name("Алексей")
+    registration.fill_last_name("Елисеев")
+    registration.fill_email("qaguru@test.com")
+    registration.fill_gender_male()
+    registration.fill_mobile_number("9999999999")
 
-    with allure.step('Ввести значение в поле last_name'):
-        registration.fill_last_name("Елисеев")
+    registration.fill_birthday("1992", "April", "04")
+    registration.fill_subjects("English")
+    registration.fill_hobbies()
 
-    with allure.step('Ввести значение в поле email'):
-        registration.fill_email("qaguru@test.com")
-
-    with allure.step('Указать значение поля gender'):
-        registration.fill_gender_male()
-
-    with allure.step('Ввести значение в поле mobile'):
-        registration.fill_mobile_number("9999999999")
-
-    with allure.step("Ввести значения поля birthday"):
-        registration.fill_birthday("1992", "April", "04")
-
-    with allure.step('Ввести значение в поле subjects'):
-        registration.fill_subjects("English")
-
-    with allure.step('Указать значение в поле hobbies'):
-        registration.fill_hobbies()
-
-    with allure.step('Загрузить изображение в в поле upload_picture'):
-        registration.upload_picture("test_image.jpg")
-
-    with allure.step('Ввести значение в поле Address'):
-        registration.fill_current_address("Test Country, test city, test street, test house")
-
-    with allure.step('Указать значение в поле state and city'):
-        registration.fill_state_and_city()
-
-    with allure.step('Нажать на кнопку Submit'):
-        registration.click_submit_button()
+    registration.upload_picture("test_image.jpg")
+    registration.fill_current_address("Test Country, test city, test street, test house")
+    registration.fill_state_and_city()
+    registration.click_submit_button()
 
     """ THEN """
-    with allure.step("Проверить корректность отправленных значений"):
-        registration.assert_value("Алексей Елисеев", "qaguru@test.com", "Male", "9999999999", "04 April,1992",
-                                  "English",
-                                  "Reading, Sports", "test_image.jpg",
-                                  "Test Country, test city, test street, test house",
-                                  "NCR Noida")
+    registration.assert_value("Алексей Елисеев", "qaguru@test.com", "Male", "9999999999", "04 April,1992",
+                              "English",
+                              "Reading, Sports", "test_image.jpg",
+                              "Test Country, test city, test street, test house",
+                              "NCR Noida")
