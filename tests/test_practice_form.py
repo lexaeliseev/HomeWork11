@@ -1,6 +1,6 @@
 import allure
 from allure_commons.types import Severity
-from selene import browser
+
 from pages.registration_page import RegistrationPage
 
 
