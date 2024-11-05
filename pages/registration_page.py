@@ -60,7 +60,9 @@ class RegistrationPage:
         return self
 
     def fill_state_and_city(self):
-        browser.element("#state").click().element(
+        browser.driver.execute_script("window.scrollBy(0, 100);")
+        browser.element("#state").click()
+        browser.element(
             "//div[contains(@id, 'react-select-3-option-0') and text()='NCR']").click()
         browser.element("#react-select-4-input").type("Noida").press_enter()
         return self

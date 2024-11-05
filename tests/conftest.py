@@ -10,7 +10,7 @@ def setup_browser():
     options = Options()
     selenoid_capabilities = {
         "browserName": "chrome",
-        "browserVersion": "100.0",
+        "browserVersion": "125.0",
         "selenoid:options": {
             "enableVNC": True,
             "enableVideo": True
@@ -22,7 +22,6 @@ def setup_browser():
         options=options)
     browser.config.driver = driver
 
-    browser.config.driver_name = "chrome"
     browser.config.window_height = 1080
     browser.config.window_width = 1920
 
